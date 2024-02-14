@@ -1,0 +1,197 @@
+/* CSS for the sidebar */
+#sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 300px; /* Adjust as needed */
+  background-color: #fafafa;
+  z-index: 2; /* Initially hide the sidebar behind other content */
+  transition: transform 0.3s ease-out;
+  transform: translateX(100%); /* Initially push sidebar off-screen */
+  padding-bottom: 10%;
+}
+/* CSS for the content overlay */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -2; /* Initially hide the overlay behind other content */
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease-out;
+}
+/* CSS for the active sidebar */
+#sidebar.active {
+  transform: translateX(0); /* Show sidebar */
+}
+/* CSS for the active overlay */
+#overlay.active {
+  z-index: 1; /* Show overlay */
+  opacity: 1; /* Make overlay visible */
+}
+/* CSS for the clickable p tags */
+#sidebar p {
+  width: 100%; /* Full width */
+  padding: 10px; /* Add padding */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  color: #00529b;
+}
+
+/* CSS for the hover effect */
+#sidebar p:hover {
+  background-color: #00529b; /* Change background color on hover */
+  color: #fff;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  font-family: sans-serif;
+}
+.entry_master_div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.navbar_master_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  border-bottom: 1px solid #ccc;
+  height: 10vh;
+}
+.banner_section_master {
+  width: 100%;
+  height: 70vh;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("/assets/encyclopedia.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.banner_section_sub_container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+  text-align: center;
+}
+.banner_section_heading_tag {
+  color: #fff;
+  font-size: 350%;
+}
+.banner_section_paragraph {
+  color: #fff;
+  font-size: 150%;
+}
+.banner_input_region {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.input_search {
+  width: 500px;
+  height: 3rem;
+  outline: none;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 2px;
+}
+.input_button {
+  width: 200px;
+  height: 3.3rem;
+  background-color: #f05b13;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 2px;
+}
+
+
+@media(max-width:480px){
+    .banner_input_region{
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-direction: row;
+flex-wrap: wrap;
+    }
+    .input_search{
+        width: 75vw;
+        height: 2.4rem;
+
+    }
+    .input_button{
+        width: 15vw;
+        height: 2.5rem;
+    }
+    .banner_section_heading_tag{
+        font-size: 28px;
+
+    }
+    .banner_section_paragraph{
+        font-size: 18px;
+    }
+    .banner_section_master{
+        height: 40vh;
+    }
+    .banner_section_sub_container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media(min-width:481px) and (max-width:767px){
+    .banner_input_region{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+            }
+            .input_search{
+                width: 75vw;
+                height: 2.4rem;
+        
+            }
+            .input_button{
+                width: 15vw;
+                height: 2.5rem;
+            }
+            .banner_section_heading_tag{
+                font-size: 28px;
+        
+            }
+            .banner_section_paragraph{
+                font-size: 18px;
+            }
+            .banner_section_master{
+                height: 40vh;
+            }
+            .banner_section_sub_container{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 1rem;
+                margin: 0;
+                padding: 0;
+            }
+}
