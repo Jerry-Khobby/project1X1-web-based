@@ -204,7 +204,7 @@ body {
 .single-card-item>h5,h6,p{
   color: #fff;
 }
-.single-card-item>h5{
+.single-card-item>a>h5{
   border: 1px solid #00529b;
   background-color: #00529b;
   height: 20px;
@@ -237,13 +237,21 @@ body {
 .footer {
   position: absolute;
   bottom: 0;
-  height: 4rem;
+  height: 5rem;
   width: 100%;
   background-color: #00529b;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  flex-direction: column;
+  gap: 3px;
+}
+
+a{
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
 }
 
 

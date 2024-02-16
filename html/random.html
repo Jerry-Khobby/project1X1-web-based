@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encyclopedia Site</title>
+    <!-- Include Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/entry.css" />
+  </head>
+  <body>
+    <div class="entry_master_div">
+        <!-- creating the navbar first -->
+        <div class="navbar_master_container">
+          <h3><a href="/html/entry.html">Project1X1.Com</a></h3>
+          <div
+            style="display: flex; flex-direction: row; align-items: center; gap: 3rem;"
+          >
+            <h5>EXPLORE</h5>
+            <!-- Display dropdown menu icon -->
+            <div
+              id="menu-icon"
+              style="background-color: rgb(202, 199, 199);height: 1.8rem;width: 1.8rem;display: flex;align-items: center;justify-content: center;border-radius: 50%;"
+            >
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Sidebar -->
+        <div id="sidebar">
+          <div
+            id="close-icon"
+            style="text-align: left; background-color: rgb(202, 199, 199);height: 1.8rem;width: 1.8rem;display: flex;align-items: center;justify-content: center;border-radius: 50%;margin: 1rem 0.4rem;"
+          >
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+          <!-- Add your sidebar content here -->
+          <div
+            style="display: flex;justify-content: center;flex-direction: column;padding: 0;align-items: flex-start; font-size: 14px;"
+          >
+            <p><a href="https://www.encyclopedia.com/history">History</a></p>
+            <p><a href="https://www.encyclopedia.com/earth-and-environment">Earth and Environment</a></p>
+            <p><a href="https://www.encyclopedia.com/literature-and-arts">Literature and Arts</a></p>
+            <p><a href="https://www.encyclopedia.com/medicine">Medicine</a></p>
+            <p><a href="https://www.encyclopedia.com/people">People</a></p>
+            <p><a href="https://www.encyclopedia.com/philosophy-and-religion">Philosophy and Religion</a></p>
+            <p><a href="https://www.encyclopedia.com/plants-and-animals">Places and Animals</a></p>
+          </div>
+        </div>
+        <!-- Overlay -->
+        <div id="overlay"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.getElementById('menu-icon');
+            const sidebar = document.getElementById('sidebar');
+            const overlay=document.getElementById('overlay');
+  
+            // Toggle sidebar function
+            function toggleSidebar() {
+                sidebar.classList.toggle('active');
+                menuIcon.querySelector('i').classList.toggle('fa-bars');
+                menuIcon.querySelector('i').classList.toggle('fa-times');
+                overlay.classList.toggle('active');
+            }
+  
+  
+            // Event listeners
+            menuIcon.addEventListener('click', toggleSidebar);
+            document.getElementById('close-icon').addEventListener('click', toggleSidebar);
+            overlay.addEventListener('click', ()=>{
+             sidebar.classList.remove('active');
+             overlay.classList.remove('active');
+         menuIcon.querySelector('i').classList.remove('fa-times');
+            menuIcon.querySelector('i').classList.add('fa-bars');
+            });
+        });
+</script>
+</body>
+</html>
