@@ -14,7 +14,7 @@
   <body>
     <div class="entry_master_div">
       <!-- creating the navbar first -->
-      <div class="navbar_master_container">
+      <div class="navbar_master_container" id="navbar">
         <h3><a href="/html/entry.html">Project1X1.Com</a></h3>
         <div
           style="display: flex; flex-direction: row; align-items: center; gap: 3rem;"
@@ -48,6 +48,9 @@
           <p><a href="https://www.encyclopedia.com/people">People</a></p>
           <p><a href="https://www.encyclopedia.com/philosophy-and-religion">Philosophy and Religion</a></p>
           <p><a href="https://www.encyclopedia.com/plants-and-animals">Places and Animals</a></p>
+          <p><a href="newpage.html">New Page</a></p>
+          <p><a href="edit.html">Edit Page</a></p>
+          <p><a href="entry.html">Search</a></p>
         </div>
       </div>
       <!-- Overlay -->
@@ -152,18 +155,15 @@
         </div>
       </div>
     </div>
+
+    <!--------------I want to put buttons here that allow me to ----------------------->
     
 
 
 
 
     <!---------the footer design------------------------------------->
-
     <div class="footer">
-<!--       <div style="display: flex;flex-direction: row;flex-wrap: wrap;align-items: center;justify-content: center;gap: 15rem;">
-        <p><a href="newpage.html">New Page(Creating a new article)</a></p>
-        <p><a href="#">Search</a></p>
-      </div> -->
       <div>
         <p><a href="/html/entry.html">Designed by Project1X1 group &copy;2024</a></p>
       </div>
@@ -196,10 +196,18 @@
           });
       });
 
+      window.addEventListener('scroll', function() {
+  var navbar = document.getElementById('navbar');
+  var scrollPosition = window.scrollY;
 
-  var doc = new DOMParser().parseFromString(html, 'text/html');
-  return doc.body.textContent || '';
-}
+  if (scrollPosition > 50) {
+    navbar.classList.add('fixed');
+  } else {
+    navbar.classList.remove('fixed');
+  }
+});
+
+
 
     </script>
   </body>
