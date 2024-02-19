@@ -73,11 +73,10 @@
               placeholder="What do you want to learn today?"
               class="input_search"
             />
-            <button class="input_button">Search</button>
+            <button class="input_button" onclick="searchContent()" style="cursor: pointer;">Search</button>
           </div>
         </div>
       </div>
-
       <!----------------------------------------The Topics to Study sessions----------------------------------------->
       <div class="outer-container">
         <div class="inner-container">
@@ -196,6 +195,12 @@
           menuIcon.querySelector('i').classList.add('fa-bars');
           });
       });
+
+
+  var doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.textContent || '';
+}
+
     </script>
   </body>
 </html>
