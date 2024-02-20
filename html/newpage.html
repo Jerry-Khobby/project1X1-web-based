@@ -60,28 +60,30 @@
       <!----------------------------------------The Topics to Study sessions----------------------------------------->
       <div style="margin-top: 0rem; display: flex;flex-direction: column; flex-wrap: wrap;align-items: center; justify-content: center; width: 100%;">
         <h4 style="font-size: 2rem;font-family:Georgia, 'Times New Roman', Times, serif;text-align: center;">You can create a new Page Here </h4>
-        <form style="display: flex;flex-direction: column;align-items: center; justify-content: center;">
+        <form id="postForm" style="display: flex;flex-direction: column;align-items: center; justify-content: center;">
             <h5 style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">Fill in the forms to create a new Post </h5>
             <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;gap: 1rem;width: 100%;">
-                <div style="display: flex;flex-direction: column;flex-wrap: wrap;">
+                <div style="display: flex;flex-direction: column;flex-wrap: wrap;width: 70vw;align-items: center;justify-content: center;">
                     <label style="font-size: 1rem;">Enter the headline of your Post</label>
-                    <input type="text" name="new post " id="new-post" placeholder="Enter the headline of your post here" style="width: 100%;height: 2rem;border: 2px solid black;"/>
+                    <input type="text" name="new post " id="new-post" placeholder="Enter the headline of your post here" style="width: 100%;height: 2rem;border: 2px solid black;border-radius: 9px;text-align: center;" class="input-post"/>
                 </div>
-                <div style="display: flex;flex-direction: column;flex-wrap: wrap;">
+                <div style="display: flex;flex-direction: column;flex-wrap: wrap;width: 100%;align-items: center;justify-content: center;">
                     <label style="font-size: 1rem;">Enter the sub headline of your post here</label>
-                    <input type="text" name="sub-headline" id="sub-headline" placeholder="Enter the sub headline of your post" style="width: 100%;height: 2rem;border: 2px solid black;"/>
+                    <input type="text" name="sub-headline" id="sub-headline" placeholder="Enter the sub headline of your post" style="width: 100%;height: 2rem;border: 2px solid black; border-radius: 9px;text-align: center;"class="input-post"/>
         
                 </div>
-                <div style="display: flex;flex-direction: column;flex-wrap: wrap;">
+                <div style="display: flex;flex-direction: column;flex-wrap: wrap;width: 100%;align-items: center;justify-content: center;">
                     <label style="font-size: 1rem;">Enter the description or an overview of your post </label>
-                    <input type="text" name="description" id="description" placeholder="Enter the description or an overview of your post" style="width: 100%;height: 2rem;border: 2px solid black;" />
+                    <input type="text" name="description" id="description" placeholder="Enter the description or an overview of your post" style="width: 100%;height: 2rem;border: 2px solid black;border-radius: 9px;text-align: center;"class="input-post" />
                 </div>
                 <div>
-                    <button type="submit" >New Page</button>
+                    <button type="button" onclick="createPost()" style="height: 2rem; width: 8rem;background-color: bisque; border-radius: 2px;">New Page</button>
                 </div>
             </div>
         </form>
     </div>
+    
+    
     
     <!-------------------------------Card Items-------------------------------------------------------------------->
     <div class="recent-cards-master" >
@@ -133,7 +135,13 @@
               </a>
             </div>
           </div>
+          <div class="card-items-sub-container">
+          </div>
         </div>
+      </div>
+<h2 style="text-align: center;">Newly Added Content</h2>
+      <div id="postsContainer">
+        <!-- Existing posts will be displayed here -->
       </div>
 
     <!--------------I want to put buttons here that allow me to ----------------------->
@@ -175,6 +183,48 @@
           menuIcon.querySelector('i').classList.add('fa-bars');
           });
       });
+      function createPost() {
+  var headline = document.getElementById('new-post').value;
+  var subheadline = document.getElementById('sub-headline').value;
+  var description = document.getElementById('description').value;
+
+  if (!headline || !subheadline || !description) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  var postHTML = `
+    <div class="single-card-item">
+      <h5>${headline}</h5>
+      <h6>${subheadline}</h6>
+      <p>${description}</p>
+    </div>
+  `;
+
+  var postsContainer = document.getElementById('postsContainer');
+  postsContainer.innerHTML += postHTML;
+
+  // Save post to local storage
+  var allPosts = JSON.parse(localStorage.getItem('posts')) || [];
+  allPosts.push({ headline: headline, subheadline: subheadline, description: description });
+  localStorage.setItem('posts', JSON.stringify(allPosts));
+}
+
+// Load posts from local storage on page load
+window.addEventListener('load', function() {
+  var allPosts = JSON.parse(localStorage.getItem('posts')) || [];
+  var postsContainer = document.getElementById('postsContainer');
+  allPosts.forEach(function(post) {
+    var postHTML = `
+      <div class="single-card-item">
+        <h5>${post.headline}</h5>
+        <h6>${post.subheadline}</h6>
+        <p>${post.description}</p>
+      </div>
+    `;
+    postsContainer.innerHTML += postHTML;
+  });
+});
 
 
 

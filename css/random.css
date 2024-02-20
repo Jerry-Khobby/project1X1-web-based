@@ -20,6 +20,17 @@
     box-shadow: inset;
 }
 
+#postsContainer{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 10rem;
+}
+
 @media(max-width:480px){
     .random_page_sub_container{
         width: 90vw;
