@@ -312,7 +312,7 @@ flex-wrap: wrap;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
-      gap: 0;
+      gap: 1rem;
     }
     .single-card-item{
       width: 90%;
