@@ -217,9 +217,12 @@ window.addEventListener('load', function() {
   allPosts.forEach(function(post) {
     var postHTML = `
       <div class="single-card-item">
+        <a href="edit.html" style="color:white">
         <h5>${post.headline}</h5>
         <h6>${post.subheadline}</h6>
         <p>${post.description}</p>
+          </a>
+
       </div>
     `;
     postsContainer.innerHTML += postHTML;
