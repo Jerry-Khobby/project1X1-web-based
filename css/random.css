@@ -19,6 +19,13 @@
     border-radius: 8px;
     box-shadow: inset;
 }
+.orange-hover {
+    transition: background-color 0.3s ease;
+}
+
+.orange-hover:hover {
+    background-color: orangered;
+}
 
 #postsContainer{
     display: flex;
